@@ -139,7 +139,7 @@ public class CardWebTest {
     @Test
     void longNumbersTest() {
         driver.get("http://localhost:9999/");
-        driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Иванов Иван");
+        driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Петров Олег");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+7999990000099999");
 
         driver.findElement(By.className("checkbox_size_m")).click();
@@ -152,7 +152,7 @@ public class CardWebTest {
     @Test
     void shortNumbersTest() {
         driver.get("http://localhost:9999/");
-        driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Иванов Иван");
+        driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Петров Олег");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+799999");
 
         driver.findElement(By.className("checkbox_size_m")).click();
@@ -165,7 +165,7 @@ public class CardWebTest {
     @Test
     void withoutPlusesNumbersTest() {
         driver.get("http://localhost:9999/");
-        driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Иванов Иван");
+        driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Петров Олег");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("79009009898");
 
         driver.findElement(By.className("checkbox_size_m")).click();
