@@ -181,8 +181,7 @@ public class CardWebTest {
 
         driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Петров Олег");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+79809909898");
-
-        driver.findElement(By.className("checkbox_size_m")).click();
+        
         driver.findElement(By.className("button")).click();
 
         assertTrue(driver.findElement(By.className("input_invalid")).isEnabled());
