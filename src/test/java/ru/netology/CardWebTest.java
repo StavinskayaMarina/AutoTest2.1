@@ -32,7 +32,6 @@ public class CardWebTest {
     @Test
     void happyPathTest() {
         driver.get("http://localhost:9999/");
-
         driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Петров Олег");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+79809909898");
 
@@ -46,7 +45,6 @@ public class CardWebTest {
     @Test
     void emptyNameTest() {
         driver.get("http://localhost:9999/");
-
         driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+79809909898");
 
@@ -88,8 +86,8 @@ public class CardWebTest {
         driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("$$)) %%");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+79101234567");
-        driver.findElement(By.className("checkbox_size_m")).click();
 
+        driver.findElement(By.className("checkbox_size_m")).click();
         driver.findElement(By.className("button")).click();
 
         String actual = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub")).getText();
@@ -122,7 +120,6 @@ public class CardWebTest {
         assertEquals("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.", actual.strip());
     }
 
-
     @Test
     void specialCharactersPhoneTest() {
         driver.get("http://localhost:9999/");
@@ -139,7 +136,7 @@ public class CardWebTest {
     @Test
     void longNumbersTest() {
         driver.get("http://localhost:9999/");
-        driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Иванов Иван");
+        driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Петров Олег");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+7999990000099999");
 
         driver.findElement(By.className("checkbox_size_m")).click();
@@ -152,7 +149,7 @@ public class CardWebTest {
     @Test
     void shortNumbersTest() {
         driver.get("http://localhost:9999/");
-        driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Иванов Иван");
+        driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Петров Олег");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+799999");
 
         driver.findElement(By.className("checkbox_size_m")).click();
@@ -165,7 +162,7 @@ public class CardWebTest {
     @Test
     void withoutPlusesNumbersTest() {
         driver.get("http://localhost:9999/");
-        driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Иванов Иван");
+        driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Петров Олег");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("79009009898");
 
         driver.findElement(By.className("checkbox_size_m")).click();
@@ -178,11 +175,9 @@ public class CardWebTest {
     @Test
     void noClickCeckboxTest() {
         driver.get("http://localhost:9999/");
-
         driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Петров Олег");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+79809909898");
 
-        driver.findElement(By.className("checkbox_size_m")).click();
         driver.findElement(By.className("button")).click();
 
         assertTrue(driver.findElement(By.className("input_invalid")).isEnabled());
